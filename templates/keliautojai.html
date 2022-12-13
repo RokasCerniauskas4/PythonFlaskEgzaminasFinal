@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Keliautojai</h1>
+
+{% if visi_keliautojai %}
+{% for keliautojas in visi_keliautojai %}
+<hr>
+<p>{{keliautojas.vardas}} {{keliautojas.pavarde}}</p>
+{% if keliautojas.Grupes %}
+<p>Priskirta grupe:</p>
+{% for grupe in keliautojas.grupes %}
+<p>{{grupe.pavadinimas}} </p>
+<p>{{grupe.aprasymas}} </p>
+{% endfor %}
+{% endif %}
+<a href="{{ url_for('istrinti_keliautoja', id=keliautojas['id']) }}">Ištrinti</a>
+{% endfor %}
+{% endif %}
+<hr>
+<p><a href="{{ url_for('naujas_keliautojas')}}">Naujas keliautojas</a></p>
+
+{% endblock %}

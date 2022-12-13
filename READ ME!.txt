@@ -1,0 +1,4 @@
+#    Prisiregistravus ir prisijungus programa leidžia vartotojui sukurti grupę, į ją pridėti visus norimus
+#    Asmenis kurie keliaus į kelionę, bei ištrynti juos ir priskirti i reikiamą grupę, išrašyti sąskaitas kiekvienam iš keliautojų
+#    Ištrynti sąskaitą, bei ištrynti grupę. Useris kuris yra prisijungęs mato tik savo grupes
+#    Useris yra grupių, bei kelionės administratorius

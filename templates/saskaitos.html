@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Saskaitos</h1>
+
+{% if visos_saskaitos %}
+{% for saskaita in visos_saskaitos %}
+<hr>
+<p><b>Pirkinys:</b>{{saskaita.pavadinimas}}</p>
+<p><b>Suma:</b>{{saskaita.suma}}</p>
+{% if saskaita.keliautojas %}
+
+<p><b>Moketojas:</b> {{saskaita.keliautojas.vardas}} {{saskaita.keliautojas.pavarde}}</p>
+{% endif %}
+<a href="{{ url_for('istrinti_saskaita', id=saskaita['id'],grupe_id=saskaita['grupe_id']) }}">Ištrinti</a>
+<p><a href="{{ url_for('prideti_saskaita', id=saskaita['grupe_id']) }}">Nauja saskaita</a></p>
+{% endfor %}
+{% endif %}
+<hr>
+
+
+{% endblock %}

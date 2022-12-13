@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Grupes</h1>
+
+{% if grupes %}
+{% for grupe in grupes %}
+<hr>
+<p><b>Keliones pavadinimas: </b>{{grupe.pavadinimas}}</p>
+<p><b>Keliones aprasymas: </b>{{grupe.aprasymas}}</p>
+{% if grupe.keliautojai %}
+<p><b>Keliautojai:</b></p>
+{% for keliautojas in grupe.keliautojai %}
+<p>{{keliautojas.vardas}}</p>
+<p>{{keliautojas.pavarde}}</p>
+{% endfor %}
+{% endif %}
+<a class="btn btn-primary" role="button" href="{{ url_for('prideti_saskaita', id=grupe['id']) }}">prideti_saskaita</a>
+<a class="btn btn-primary"  role="button" href="{{ url_for('grupes_saskaitos', id=grupe['id']) }}">grupes_saskaitos</a>
+<a class="btn btn-primary"  role="button" href="{{ url_for('istrinti_grupe', id=grupe['id']) }}">Ištrinti Grupe</a>
+{% endfor %}
+{% endif %}
+<hr>
+<p><a class="btn btn-primary" role="button" href="{{ url_for('nauja_grupe')}}">Nauja grupe</a></p>
+
+{% endblock %}
